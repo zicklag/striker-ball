@@ -1,0 +1,58 @@
+name: 🌐 Publish Web Demo
+
+on:
+  push:
+    tags:
+      - "v*"
+    branches:
+      - main
+
+concurrency:
+  group: web-demo
+  cancel-in-progress: true
+
+jobs:
+  publish-web-demo:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v2
+        name: ⬇️ Checkout
+
+      - name: 🦀 Install Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-unknown-unknown
+          override: true
+
+      - uses: jetli/wasm-bindgen-action@v0.1.0
+        name: 🔧 Wasm Bindgen
+        with:
+          version: "0.2.100"
+
+      - uses: actions/cache@v3
+        name: ♻️ Cache Cargo
+        with:
+          path: |
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+            web-target/
+          key: web-release-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            web-release-
+
+      - name: 🔨 Build WASM Release
+        run: ./scripts/build-web.sh release
+
+      - name: Upload static files as artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web-target/wasm-release
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

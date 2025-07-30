@@ -14,11 +14,16 @@ pub use ball::prelude::*;
 pub mod spawn;
 pub use spawn::prelude::*;
 
+#[cfg(not(target_arch = "wasm32"))]
+type NetworkMatchSocket = bones_framework::networking::NetworkMatchSocket;
+#[cfg(target_arch = "wasm32")]
+type NetworkMatchSocket = ();
+
 #[derive(HasSchema, Clone)]
 pub enum PlayMode {
     Online {
         clientpad: u32,
-        socket: bones_framework::networking::NetworkMatchSocket,
+        socket: NetworkMatchSocket,
     },
     Offline(PlayersInfo),
 }

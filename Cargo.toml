@@ -14,6 +14,17 @@ bytemuck = "1.16.1"
 gilrs = "0.11.0"
 ttf-parser = { version = "*", features = ["std"] }
 
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+# We don't directly depend on these but we need to add the WASM features to them because
+# other dependencies user them.
+getrandom = { version = "0.3.3", features = ["wasm_js"] }
+uuid = { version = "1.17", features = ["rng-getrandom"]}
+
+[profile.release]
+lto = true
+codegen-units = 8
+strip = true
+
 [profile.dev]
 codegen-units = 512
 opt-level     = 1

@@ -7034,9 +7034,11 @@ dependencies = [
  "bones_bevy_renderer",
  "bones_framework",
  "bytemuck",
+ "getrandom 0.3.3",
  "gilrs",
  "tracing",
  "ttf-parser 0.24.1",
+ "uuid",
 ]
 
 [[package]]
@@ -8065,7 +8067,17 @@ dependencies = [
  "getrandom 0.3.3",
  "js-sys",
  "serde",
+ "uuid-rng-internal",
  "wasm-bindgen",
+]
+
+[[package]]
+name = "uuid-rng-internal"
+version = "1.17.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "11c277e43528edc5dd4660d28b2e61d70dff7f4f91502fe6a9a917eb61e427e9"
+dependencies = [
+ "getrandom 0.3.3",
 ]
 
 [[package]]
