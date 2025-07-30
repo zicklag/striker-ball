@@ -1,0 +1,32 @@
+idle:
+    frames: [0]
+    fps: 10
+    repeat: true
+walk:
+    frames: [1, 2, 3, 4]
+    fps: 10
+    repeat: true
+grab:
+    frames: [4, 0]
+    fps: 10
+    repeat: false
+shoot:
+    frames: [3]
+    fps: 10
+    repeat: false
+kick:
+    frames: [2, 1]
+    fps: 10
+    repeat: false
+tackle:
+    frames: [5]
+    fps: 10
+    repeat: false
+tackled:
+    frames: [6, 6, 7]
+    fps: 10
+    repeat: false
+winning:
+    frames: [9, 10, 11, 12, 13, 14, 15, 14]
+    fps: 10
+    repeat: true

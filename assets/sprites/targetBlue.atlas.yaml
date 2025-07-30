@@ -1,0 +1,4 @@
+image: targetBlue.png
+tile_size: [25, 25]
+rows: 1
+columns: 6

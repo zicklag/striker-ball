@@ -1,0 +1,4 @@
+image: numbers.png
+tile_size: [45, 45]
+rows: 10
+columns: 1

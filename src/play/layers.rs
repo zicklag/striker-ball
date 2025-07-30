@@ -1,0 +1,13 @@
+crate::layers![
+    COURT,
+    AIMCONE,
+    AIMARROW,
+    HITO_SHADOW,
+    BALL,
+    PIN,
+    HITO,
+    OVERLAY,
+    SCOREBG,
+    SCORE_NUMBER,
+    CAMERA
+];

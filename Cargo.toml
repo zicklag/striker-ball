@@ -1,0 +1,20 @@
+[package]
+name = "striker_ball"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tracing = "0.1.40"
+bones_framework = { git="https://github.com/fishfolk/bones.git" }
+bones_bevy_renderer = { git="https://github.com/fishfolk/bones.git" }
+bytemuck = "1.16.1"
+gilrs = "0.11.0"
+ttf-parser = { version = "*", features = ["std"] }
+
+[profile.dev]
+codegen-units = 512
+opt-level     = 1
+debug = false

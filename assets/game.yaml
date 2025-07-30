@@ -1,0 +1,181 @@
+localization: localization.yaml
+screen_size: [&screen_width 375, &screen_height 211]
+court: [sprites/soccerField.png, *screen_width, *screen_height]
+
+# Constants
+constant:
+  ball_bounds: [179.5, 96.5] # [359, 193]
+  player_bounds: [154.5, 96.5] # [309, 193]
+  pin_count: 7
+  pin_padding: [11, 2]
+
+  dribble_speed: 1.0
+  run_speed: 1.6
+  tackle_speed: 2.4
+  tackle_friction: 0.08
+  kick_power: 5.0
+  player_radius: 4.0
+
+  kick_frames: 30
+  tackle_frames: 30
+  tackled_frames: 30
+  pass_frames: 30
+  recieve_frames: 30
+  turn_frames: 10
+  dribble_smoothing: 5.0
+  dribble_smoothing_threshold: 1.0
+
+  ball_radius: 8.0
+  ball_friction: 0.98
+  ball_etransfer: 0.8
+  ball_border_slide: 0.1
+
+  pin_radius: 7.5
+
+# Sprites
+sprite:
+  ball: sprites/ball.atlas.yaml
+  a_pin: sprites/targetRed.atlas.yaml
+  b_pin: sprites/targetBlue.atlas.yaml
+
+  player_a: sprites/players/redSoccerPlayer.atlas.yaml
+  player_b: sprites/players/blueSoccerPlayer.atlas.yaml
+  player_animations: sprites/players/player.animations.yaml
+  lstick_indicator: sprites/players/LStickIndicator.png
+  rstick_indicator: sprites/players/RStickIndicator.png
+  p1_shadow: sprites/players/p1Shadow.png
+  p2_shadow: sprites/players/p2Shadow.png
+  p3_shadow: sprites/players/p3Shadow.png
+  p4_shadow: sprites/players/p4Shadow.png
+  aim_cone: sprites/players/aimCone.png
+  aim_arrow: sprites/players/aimArrow.png
+
+# Sound
+sound:
+  menu_music: [sound/menu_music.ogg, 0.6]
+  pin_explosion: [sound/pin_explosion.ogg, 0.2]
+  countdown_first: [sound/countdown_first.ogg, 0.1]
+  countdown_final: [sound/countdown_final.ogg, 0.11]
+  winner: [sound/winner.ogg, 0.18]
+  ball_spin: [sound/ball_spin.ogg, 0.05]
+  ball_spin_buffer: 30.0
+
+# Fonts
+font:
+  primary_inner: fonts/striker_ball_inner.ttf
+  primary_outer: fonts/striker_ball_outer.ttf
+  small_inner: fonts/tiny_trimmed_pixels.ttf
+  small_outer: fonts/tiny_trimmed_pixels_coat.ttf
+
+# Menus
+menu:
+  numbers: ui/numbers.atlas.yaml
+  bframe:
+    image: ui/borderedFrame.png
+    image_size: [12, 12]
+    border_size:
+      top: &margin 4
+      left: *margin
+      right: *margin
+      bottom: *margin
+    scale: 1
+  score_bg: [ui/scoreBoardBackground.png, 91, 45]
+  go_text: [ui/countdownGo.png, 91, 45]
+
+  splash:
+    slots:
+      title: [129, 30]
+      selection: [140, 122]
+      offline: [145, 131]
+      how_to_play: [159, 144]
+    bg: ui/main_menu/mainMenuBackground.png
+    title: [ui/main_menu/titleText.png, 117, 66]
+    button_bg: [ui/main_menu/modeSelectBackground.png, 95, 38]
+    offline: [ui/main_menu/offlineButton.png, 84, 7]
+    offline_blink: [ui/main_menu/offlineButtonBlink.png, 84, 7]
+    how_to_play: [ui/main_menu/howToPlayButton.png, 55, 7]
+    how_to_play_blink: [ui/main_menu/howToPlayButtonBlink.png, 55, 7]
+
+  how_to_play:
+    rules: [
+      ui/main_menu/howToPlayRules.png,
+      *screen_width,
+      *screen_height,
+    ]
+    single_stick: [
+      ui/main_menu/singleStickDiagram.png,
+      *screen_width,
+      *screen_height,
+    ]
+    twin_stick: [
+      ui/main_menu/twinStickDiagram.png,
+      *screen_width,
+      *screen_height,
+    ]
+    right_arrow: [ui/main_menu/howToPlayRightArrow.png, 22, 14]
+    left_arrow: [ui/main_menu/howToPlayLeftArrow.png, 22, 14]
+    slots:
+      primary_header: [60, 25]
+      secondary_header: [300, 25]
+      right_arrow: [346, &arrow_y 99]
+      left_arrow: [8, *arrow_y]
+      overview_tl: [&leftx 70, &topy 60]
+      overview_tr: [&rightx 240, *topy]
+      overview_bl: [*leftx, &bottomy 150]
+      overview_br: [*rightx, *bottomy]
+
+  team_select:
+    slots:
+      a1: [&ax 56, &1y 32]
+      a2: [*ax, &2y 145]
+      b1: [&bx 268, *1y]
+      b2: [*bx, *2y]
+      pad1: [&cx 168, 17]
+      pad2: [*cx, 68]
+      pad3: [*cx, 120]
+      pad4: [*cx, 172]
+      number_icon_offset: [11, -13]
+      ready_btn_offset: [12, 20]
+      ready_text_offset: [19, 34]
+      pad_bg_offset: [20, 14]
+      start_offset: [151, 120]
+      back_btn_offset: [2, 192]
+
+    a_team_background: [
+      ui/team_select/redTeamBackground.png,
+      &tbgw 163,
+      &tbgh 211,
+    ]
+    b_team_background: [ui/team_select/blueTeamBackground.png, *tbgw, *tbgh]
+    center_controller_column: [ui/team_select/centerRow.png, 49, 211]
+    pad_slot_bg: [ui/team_select/purpleOrb.png, 57, 57]
+    controller_icon: [ui/team_select/controller_icon.png, 39, 28]
+    controller_icon_silhouette: [
+      ui/team_select/controller_icon_silhouette.png,
+      39,
+      28,
+    ]
+    player1_icon: [ui/team_select/player1Icon.png, 17, 11]
+    player2_icon: [ui/team_select/player2Icon.png, 17, 11]
+    player3_icon: [ui/team_select/player3Icon.png, 17, 11]
+    player4_icon: [ui/team_select/player4Icon.png, 17, 11]
+    start: [ui/team_select/pressStart.png, 73, 21]
+    start_blink: [ui/team_select/pressStartBlink.png, 73, 21]
+    back_btn: ui/team_select/goBackButton.atlas.yaml
+    back_buffer: 60
+
+  winner_banner:
+    team_a: [ui/winnerBannerRed.png, &bannerx 375, &bannery 50]
+    team_b: [ui/winnerBannerBlue.png, *bannerx, *bannery]
+
+  match_done:
+    buttons: ui/endGameButtons.png
+    button_picker1: [ui/endGameButtonPicker1.png, 5, 30]
+    button_picker2: [ui/endGameButtonPicker2.png, 5, 30]
+
+  pause:
+    menu: [ui/pauseMenu.png, 177, 89]
+    cursor: [ui/pauseCursor.png, 6, 5]
+    continue_pos: [61, 47]
+    restart_pos: [65, 59]
+    team_select_pos: [72, 71]

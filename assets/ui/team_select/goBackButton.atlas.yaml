@@ -1,0 +1,4 @@
+image: goBackButton.png
+tile_size: [60, 18]
+rows: 7
+columns: 1
